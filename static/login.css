@@ -1,0 +1,538 @@
+/* LOGIN.CSS - ULTIMATE HACKER THEME */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono:wght@400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: #00ff00;
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Matrix Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at center, rgba(0, 255, 0, 0.05) 0%, transparent 70%),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 0, 0.02),
+            rgba(0, 255, 0, 0.02) 1px,
+            transparent 1px,
+            transparent 40px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0, 255, 0, 0.01),
+            rgba(0, 255, 0, 0.01) 1px,
+            transparent 1px,
+            transparent 40px
+        );
+    animation: matrix-rain 10s linear infinite;
+    pointer-events: none;
+    z-index: -2;
+}
+
+@keyframes matrix-rain {
+    0% { 
+        transform: translateY(-100px) translateX(-50px);
+        opacity: 0.3;
+    }
+    100% { 
+        transform: translateY(100px) translateX(50px);
+        opacity: 0.7;
+    }
+}
+
+/* Floating particles */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, rgba(0, 255, 0, 0.3), transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(0, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 0, 0.3), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(0, 255, 0, 0.3), transparent),
+        radial-gradient(1px 1px at 160px 30px, rgba(0, 255, 255, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: float-particles 15s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes float-particles {
+    0% { 
+        transform: translateY(0) translateX(0);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(-200px) translateX(100px);
+        opacity: 0.3;
+    }
+}
+
+/* Main form container */
+form {
+    background: rgba(0, 0, 0, 0.95);
+    border: 3px solid #00ff00;
+    border-radius: 15px;
+    padding: 50px 40px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    box-shadow: 
+        0 0 50px rgba(0, 255, 0, 0.5),
+        inset 0 0 50px rgba(0, 255, 0, 0.1),
+        0 0 100px rgba(0, 255, 0, 0.2);
+    animation: form-pulse 4s ease-in-out infinite;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes form-pulse {
+    0%, 100% { 
+        box-shadow: 
+            0 0 50px rgba(0, 255, 0, 0.5),
+            inset 0 0 50px rgba(0, 255, 0, 0.1),
+            0 0 100px rgba(0, 255, 0, 0.2);
+        border-color: #00ff00;
+    }
+    50% { 
+        box-shadow: 
+            0 0 80px rgba(0, 255, 255, 0.7),
+            inset 0 0 80px rgba(0, 255, 255, 0.2),
+            0 0 150px rgba(0, 255, 255, 0.3);
+        border-color: #00ffff;
+    }
+}
+
+/* Terminal header effect */
+form::before {
+    content: '> SISTEMA DE AUTENTICACIÓN INICIADO...';
+    position: absolute;
+    top: -45px;
+    left: 0;
+    right: 0;
+    color: #00ffff;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    animation: typing-header 3s steps(40, end), blink-cursor 1s step-end infinite;
+    font-family: 'Fira Code', monospace;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+@keyframes typing-header {
+    from { 
+        width: 0;
+        opacity: 0;
+    }
+    to { 
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes blink-cursor {
+    0%, 50% { 
+        border-right: 2px solid #00ffff;
+    }
+    51%, 100% { 
+        border-right: 2px solid transparent;
+    }
+}
+
+/* Corner decorations */
+form::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00ff00, #00ffff, #ffff00, #ff0080, #00ff00);
+    background-size: 400% 400%;
+    border-radius: 15px;
+    z-index: -1;
+    animation: rainbow-border 3s ease-in-out infinite;
+}
+
+@keyframes rainbow-border {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Title styling */
+h2 {
+    color: #00ffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    position: relative;
+    text-shadow: 
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 30px #00ffff,
+        0 0 40px #00ffff;
+    animation: title-glitch 3s ease-in-out infinite;
+}
+
+@keyframes title-glitch {
+    0%, 100% { 
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+    }
+    10% { 
+        transform: translate(-2px, 2px);
+        filter: hue-rotate(90deg);
+    }
+    20% { 
+        transform: translate(2px, -2px);
+        filter: hue-rotate(180deg);
+    }
+    30% { 
+        transform: translate(-2px, -2px);
+        filter: hue-rotate(270deg);
+    }
+    40% { 
+        transform: translate(2px, 2px);
+        filter: hue-rotate(360deg);
+    }
+    50% { 
+        transform: translate(0);
+        filter: hue-rotate(0deg);
+    }
+}
+
+h2::before {
+    content: '< ACCESO >';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #ff0080;
+    opacity: 0.7;
+    animation: glitch-overlay-1 2s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+h2::after {
+    content: '< ACCESO >';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #80ff00;
+    opacity: 0.7;
+    animation: glitch-overlay-2 2s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-overlay-1 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-3px, 1px); }
+    40% { transform: translate(3px, -1px); }
+    60% { transform: translate(-1px, 3px); }
+    80% { transform: translate(1px, -3px); }
+}
+
+@keyframes glitch-overlay-2 {
+    0%, 100% { transform: translate(0); }
+    15% { transform: translate(2px, -2px); }
+    35% { transform: translate(-2px, 2px); }
+    55% { transform: translate(2px, 2px); }
+    75% { transform: translate(-2px, -2px); }
+}
+
+/* Labels */
+label {
+    display: block;
+    color: #ffff00;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-shadow: 0 0 10px #ffff00;
+    position: relative;
+    animation: label-flicker 4s ease-in-out infinite;
+}
+
+@keyframes label-flicker {
+    0%, 100% { 
+        opacity: 1;
+        text-shadow: 0 0 10px #ffff00;
+    }
+    50% { 
+        opacity: 0.8;
+        text-shadow: 0 0 20px #ffff00, 0 0 30px #ffff00;
+    }
+}
+
+label::before {
+    content: '>> ';
+    color: #00ff00;
+    font-weight: 900;
+    animation: cursor-blink 1.5s infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+/* Input fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    padding: 18px 20px;
+    color: #00ff00;
+    font-family: 'Fira Code', monospace;
+    font-size: 1.1em;
+    font-weight: 500;
+    outline: none;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 255, 0, 0.1),
+        0 0 10px rgba(0, 255, 0, 0.2);
+    position: relative;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #00ffff;
+    color: #00ffff;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 255, 0.6),
+        inset 0 0 30px rgba(0, 255, 255, 0.2);
+    text-shadow: 0 0 5px #00ffff;
+    transform: scale(1.02);
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: rgba(0, 255, 0, 0.5);
+    font-style: italic;
+}
+
+/* Password field special effect */
+input[type="password"] {
+    letter-spacing: 3px;
+}
+
+input[type="password"]:focus {
+    animation: password-secure 0.5s ease-in-out;
+}
+
+@keyframes password-secure {
+    0% { border-color: #ff0080; }
+    50% { border-color: #ffff00; }
+    100% { border-color: #00ffff; }
+}
+
+/* Submit button */
+button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(45deg, rgba(0, 255, 0, 0.2), rgba(0, 255, 255, 0.2));
+    border: 3px solid #00ff00;
+    border-radius: 10px;
+    padding: 18px 20px;
+    color: #00ff00;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 0 10px #00ff00;
+    margin-bottom: 20px;
+}
+
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(45deg, #00ff00, #00ffff);
+    color: #000000;
+    border-color: #00ffff;
+    box-shadow: 
+        0 0 40px rgba(0, 255, 255, 0.8),
+        0 0 80px rgba(0, 255, 0, 0.6);
+    text-shadow: none;
+    transform: scale(1.05);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+    animation: button-hack 0.3s ease-in-out;
+}
+
+@keyframes button-hack {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+    100% { filter: hue-rotate(0deg); }
+}
+
+/* Error message styling */
+p[style*="color: red"] {
+    background: rgba(255, 0, 0, 0.1) !important;
+    border: 2px solid #ff0040 !important;
+    border-radius: 8px !important;
+    padding: 15px 20px !important;
+    color: #ff0040 !important;
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-top: 20px !important;
+    text-shadow: 0 0 10px #ff0040 !important;
+    animation: error-alert 1s ease-in-out infinite !important;
+    position: relative !important;
+}
+
+@keyframes error-alert {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(255, 0, 64, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+p[style*="color: red"]::before {
+    content: '⚠ ERROR: ';
+    color: #ffff00;
+    font-weight: 900;
+    text-shadow: 0 0 10px #ffff00;
+    animation: warning-blink 0.8s infinite;
+}
+
+@keyframes warning-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    form {
+        padding: 30px 20px;
+        margin: 20px;
+        border-radius: 10px;
+    }
+    
+    form::before {
+        font-size: 0.7em;
+        top: -35px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+    }
+    
+    label {
+        font-size: 1em;
+        letter-spacing: 1px;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+        padding: 15px 18px;
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+    
+    button[type="submit"] {
+        padding: 15px 18px;
+        font-size: 1em;
+        letter-spacing: 2px;
+    }
+}
+
+/* Loading animation */
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0, 255, 0, 0.3);
+    border-top: 3px solid #00ff00;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: loading-spin 1s linear infinite;
+    z-index: 20;
+}
+
+@keyframes loading-spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Success effect */
+.success {
+    animation: success-hack 2s ease-in-out;
+}
+
+@keyframes success-hack {
+    0% { filter: hue-rotate(0deg) brightness(1); }
+    25% { filter: hue-rotate(90deg) brightness(1.5); }
+    50% { filter: hue-rotate(180deg) brightness(2); }
+    75% { filter: hue-rotate(270deg) brightness(1.5); }
+    100% { filter: hue-rotate(360deg) brightness(1); }
+}

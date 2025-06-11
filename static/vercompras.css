@@ -1,0 +1,317 @@
+/* Hacker Theme CSS */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    color: #00ff00;
+    font-family: 'Fira Code', monospace;
+    background-image: 
+        radial-gradient(circle at 1px 1px, #00ff0020 1px, transparent 0),
+        linear-gradient(0deg, transparent 24%, rgba(0, 255, 0, 0.05) 25%, rgba(0, 255, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 0, 0.05) 75%, rgba(0, 255, 0, 0.05) 76%, transparent 77%);
+    background-size: 30px 30px;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    overflow-x: auto;
+}
+
+/* Matrix-style background animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 98px,
+            rgba(0, 255, 0, 0.03) 100px
+        ),
+        repeating-linear-gradient(
+            180deg,
+            transparent,
+            transparent 98px,
+            rgba(0, 255, 0, 0.03) 100px
+        );
+    pointer-events: none;
+    z-index: -1;
+    animation: scanlines 4s linear infinite;
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100px); }
+}
+
+/* Glitch effect for title */
+h2 {
+    font-size: 2.5rem;
+    color: #00ffff;
+    text-align: center;
+    margin: 20px 0 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    text-shadow: 
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 15px #00ffff,
+        0 0 20px #00ffff;
+    animation: glitch 2s infinite;
+}
+
+h2::before {
+    content: "DETALLE COMPRA";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #ff0040;
+    opacity: 0.8;
+    animation: glitch-1 2s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+h2::after {
+    content: "DETALLE COMPRA";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #40ff00;
+    opacity: 0.8;
+    animation: glitch-2 2s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+    0%, 100% { transform: translate(0); }
+    10% { transform: translate(-2px, -1px); }
+    20% { transform: translate(2px, 1px); }
+    30% { transform: translate(-1px, 2px); }
+    40% { transform: translate(1px, -1px); }
+    50% { transform: translate(-1px, 2px); }
+    60% { transform: translate(2px, 1px); }
+    70% { transform: translate(-2px, -1px); }
+    80% { transform: translate(2px, -1px); }
+    90% { transform: translate(-1px, 1px); }
+}
+
+@keyframes glitch-2 {
+    0%, 100% { transform: translate(0); }
+    15% { transform: translate(1px, -2px); }
+    25% { transform: translate(-2px, 1px); }
+    35% { transform: translate(2px, -1px); }
+    45% { transform: translate(-1px, -2px); }
+    55% { transform: translate(2px, 2px); }
+    65% { transform: translate(-2px, -1px); }
+    75% { transform: translate(1px, 2px); }
+    85% { transform: translate(-1px, -2px); }
+    95% { transform: translate(2px, 1px); }
+}
+
+/* Styled links */
+a {
+    color: #00ff00;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border: 2px solid #00ff00;
+    border-radius: 0;
+    background: rgba(0, 255, 0, 0.1);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+a:hover::before {
+    left: 100%;
+}
+
+a:hover {
+    color: #0a0a0a;
+    background: #00ff00;
+    box-shadow: 
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        0 0 30px #00ff00;
+    text-shadow: none;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff00;
+    position: relative;
+    overflow: hidden;
+}
+
+table::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 0, 0.05),
+            rgba(0, 255, 0, 0.05) 1px,
+            transparent 1px,
+            transparent 20px
+        );
+    pointer-events: none;
+}
+
+th, td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #00ff0040;
+    border-right: 1px solid #00ff0040;
+    position: relative;
+    font-family: 'Fira Code', monospace;
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+th {
+    background: rgba(0, 255, 0, 0.15);
+    color: #00ffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px #00ffff;
+    position: relative;
+}
+
+th::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00ff00, #00ffff, #00ff00);
+    animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+td {
+    background: rgba(0, 0, 0, 0.6);
+    color: #00ff00;
+    transition: all 0.3s ease;
+}
+
+tr:hover td {
+    background: rgba(0, 255, 0, 0.1);
+    color: #ffffff;
+    text-shadow: 0 0 3px #00ff00;
+}
+
+/* Paragraph styling */
+p {
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+    }
+    
+    a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Terminal cursor effect */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Add terminal prompt before title */
+h2::before {
+    content: "> ";
+    color: #00ff00;
+    animation: blink 1s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border: 1px solid #00ff0040;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00ff00, #00ffff);
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00ffff, #00ff00);
+}

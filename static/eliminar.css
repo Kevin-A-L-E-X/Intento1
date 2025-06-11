@@ -1,0 +1,241 @@
+/* WARNING ALERT CSS - HACKER THEME */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+/* Estilo específico para enlaces de eliminar */
+.delete-btn {
+    color: #ff0040 !important;
+    background: rgba(255, 0, 64, 0.1) !important;
+    border: 2px solid #ff0040 !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', monospace;
+    animation: danger-pulse 2s infinite;
+}
+
+@keyframes danger-pulse {
+    0%, 100% { 
+        box-shadow: 0 0 5px #ff0040;
+    }
+    50% { 
+        box-shadow: 0 0 20px #ff0040, 0 0 30px #ff0040;
+    }
+}
+
+.delete-btn::before {
+    content: '⚠ ';
+    color: #ffff00;
+    font-weight: 900;
+    text-shadow: 0 0 5px #ffff00;
+    animation: warning-blink 1s infinite;
+}
+
+@keyframes warning-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+.delete-btn:hover {
+    background: #ff0040 !important;
+    color: #ffffff !important;
+    box-shadow: 
+        0 0 20px #ff0040,
+        0 0 40px #ff0040,
+        0 0 60px #ff0040 !important;
+    transform: scale(1.05);
+}
+
+/* Personalización del alert nativo del navegador */
+.confirm-dialog {
+    font-family: 'Orbitron', monospace !important;
+    background: #0a0a0a !important;
+    color: #ff0040 !important;
+    border: 3px solid #ff0040 !important;
+}
+
+/* Estilos para navegadores que soportan personalización de alerts */
+:root {
+    --alert-bg: #0a0a0a;
+    --alert-border: #ff0040;
+    --alert-text: #ff0040;
+    --alert-button-bg: rgba(255, 0, 64, 0.2);
+    --alert-button-hover: #ff0040;
+}
+
+/* Alternativa usando SweetAlert2 (más avanzado) */
+.swal2-popup {
+    background: #0a0a0a !important;
+    border: 3px solid #ff0040 !important;
+    color: #ff0040 !important;
+    font-family: 'Orbitron', monospace !important;
+    box-shadow: 
+        0 0 50px #ff0040,
+        inset 0 0 50px rgba(255, 0, 64, 0.1) !important;
+    animation: alert-glitch 0.5s ease-out;
+}
+
+@keyframes alert-glitch {
+    0% { 
+        transform: scale(0.3) rotate(-5deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1) rotate(2deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.swal2-title {
+    color: #ffff00 !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    text-shadow: 0 0 10px #ffff00 !important;
+}
+
+.swal2-title::before {
+    content: '⚠ PELIGRO ⚠';
+    display: block;
+    color: #ff0040;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    animation: danger-flash 0.8s infinite;
+}
+
+@keyframes danger-flash {
+    0%, 100% { 
+        text-shadow: 0 0 10px #ff0040;
+        transform: scale(1);
+    }
+    50% { 
+        text-shadow: 0 0 20px #ff0040, 0 0 30px #ff0040;
+        transform: scale(1.05);
+    }
+}
+
+.swal2-html-container {
+    color: #00ff00 !important;
+    font-weight: 600 !important;
+    font-size: 1.1em !important;
+    text-shadow: 0 0 5px #00ff00 !important;
+}
+
+.swal2-confirm {
+    background: #ff0040 !important;
+    border: 2px solid #ff0040 !important;
+    color: #ffffff !important;
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    padding: 12px 24px !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 20px #ff0040 !important;
+    transition: all 0.3s ease !important;
+}
+
+.swal2-confirm:hover {
+    background: #ff3366 !important;
+    box-shadow: 0 0 30px #ff0040, 0 0 50px #ff0040 !important;
+    transform: scale(1.05) !important;
+}
+
+.swal2-cancel {
+    background: rgba(0, 255, 0, 0.2) !important;
+    border: 2px solid #00ff00 !important;
+    color: #00ff00 !important;
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    padding: 12px 24px !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 20px #00ff00 !important;
+    transition: all 0.3s ease !important;
+}
+
+.swal2-cancel:hover {
+    background: #00ff00 !important;
+    color: #0a0a0a !important;
+    box-shadow: 0 0 30px #00ff00, 0 0 50px #00ff00 !important;
+    transform: scale(1.05) !important;
+}
+
+/* Overlay con efecto matriz */
+.swal2-container {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.swal2-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 0, 64, 0.1),
+            rgba(255, 0, 64, 0.1) 1px,
+            transparent 1px,
+            transparent 20px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 0, 64, 0.05),
+            rgba(255, 0, 64, 0.05) 1px,
+            transparent 1px,
+            transparent 20px
+        );
+    animation: matrix-scroll 3s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes matrix-scroll {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(20px) translateX(20px); }
+}
+
+/* Efectos de sonido visual */
+.delete-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, #ff0040, transparent);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.delete-btn:active::after {
+    width: 200px;
+    height: 200px;
+    opacity: 0.3;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .delete-btn {
+        padding: 10px 14px;
+        font-size: 0.9em;
+    }
+    
+    .swal2-popup {
+        width: 90% !important;
+        font-size: 0.9em !important;
+    }
+}
